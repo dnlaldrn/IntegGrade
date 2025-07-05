@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    display: grid;
+    grid-template-columns: repeat(2,50%);
+    gap: 10px;
+    
+    
+}.center-container{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+.caption{
+    display: flex;
+    justify-content: center;
+}.text-caption{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+}
+span{
+    color: rgb(168, 228, 49);
+}
+.firsttext{
+    display: flex;
+    justify-content: center;
+}.secondtext{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}.firsttext, .secondtext {
+    font-size: 1.5rem;
+}
+input{
+    padding: 10px 15px;
+    border: 2px solid rgb(168, 228, 49);
+    border-radius: 20px;
+}
+.calculateButton, .deleteButton{
+    padding: 8px 10px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    transition: .3s;
+    
+}
+.calculateButton{
+    background-color:rgb(168, 228, 49) ;
+    
+    
+}
+.calculateButton:hover{
+    color:rgb(168, 228, 49) ;
+    background-color: white;
+    border:2px solid rgb(168, 228, 49) ;
+    transform: scale(1.1);
+    
+    
+    
+}
+.deleteButton{
+    color:white;
+    background-color: red;
+
+}
+.deleteButton:hover{
+    color:red;
+    background-color: white;
+    border:2px solid red ;
+    transform: scale(1.1);
+
+}
+.display-container{
+    display: flex;
+    justify-content: center;
+    margin-top:20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+}
