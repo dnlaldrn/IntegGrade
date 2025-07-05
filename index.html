@@ -8,30 +8,30 @@
 </head>
 
 <body>
+<div class="content-container">
+                <div class="firsttext"><p>Welcome to Inte<span>Grade</span></p></div>
+                <div class="secondtext"><p>your integral calculus grade <span>converter</span> </p></div>
+        
+        
+            <div class="center-container">
+                <div class="container">
+                    
+                    <input class="quizrawScore" type="number" placeholder="Enter your quiz raw score"> 
+                    <input class="quizHPscore" type="number" placeholder="Enter quiz highest possible score"> 
+                    <input class="examRawScore" type="number" placeholder="Enter your exam raw score"> 
+                    <input class="examHPscore" type="number" placeholder="Enter exam highest possible score"> 
+                    <button onclick="
+                    calculateGrade(),displayGrade()"class="calculateButton">Calculate</button>
+                    <button onclick=" deleteDisplay()" class="deleteButton">Delete</button>
+                
+                </div>
+            </div>
+            <div class="display-container">
+                <p class="display">
 
-        <div class="firsttext"><p>Welcome to Inte<span>Grade</span></p></div>
-         <div class="secondtext"><p>your integral calculus grade <span>converter</span> </p></div>
-   
-   
-    <div class="center-container">
-        <div class="container">
-            
-            <input class="quizrawScore" type="number" placeholder="Enter your quiz raw score"> 
-            <input class="quizHPscore" type="number" placeholder="Enter quiz highest possible score"> 
-            <input class="examRawScore" type="number" placeholder="Enter your exam raw score"> 
-            <input class="examHPscore" type="number" placeholder="Enter exam highest possible score"> 
-            <button onclick="
-            calculateGrade(),displayGrade()"class="calculateButton">Calculate</button>
-            <button onclick=" deleteDisplay()" class="deleteButton">Delete</button>
-           
-        </div>
+                </p>
+            </div> 
     </div>
-     <div class="display-container">
-        <p class="display">
-
-        </p>
-    </div> 
-    
 
     <script src="script.js">
 
