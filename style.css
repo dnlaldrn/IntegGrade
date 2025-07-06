@@ -1,21 +1,26 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 body{
     background-color:  rgb(168, 228, 49);
+    min-height: 100vh;
+    padding: 20px;
 }
 .container{
     display: grid;
-    grid-template-columns: repeat(2,50%);
-    gap: 10px;
-    
-    
-}.center-container{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    width: 100%;
+    max-width: 500px;
+}
+.center-container{
     display: flex;
     justify-content: center;
     align-content: center;
     flex-wrap: wrap;
+    width: 100%;
 }
 .caption{
     display: flex;
@@ -30,71 +35,180 @@ span{
 .firsttext{
     display: flex;
     justify-content: center;
-}.secondtext{
+    text-align: center;
+}
+.secondtext{
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
-}.firsttext, .secondtext {
-    font-size: 1.2rem;
+    text-align: center;
+}
+.firsttext, .secondtext {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+}
+.firsttext p, .secondtext p {
+    padding: 0 10px;
 }
 input{
-    padding: 10px 15px;
+    padding: 12px 15px;
     border: 2px solid rgb(168, 228, 49);
     border-radius: 20px;
+    font-size: 14px;
+    width: 100%;
+    min-width: 0;
+}
+input::placeholder {
+    font-size: 12px;
 }
 .calculateButton, .deleteButton{
-    padding: 8px 10px;
+    padding: 12px 15px;
     border: none;
     border-radius: 10px;
     color: white;
     transition: .3s;
-    
+    font-size: 14px;
+    cursor: pointer;
+    width: 100%;
+    min-height: 44px;
 }
 .calculateButton{
-    background-color:rgb(168, 228, 49) ;
-    
-    
+    background-color: rgb(168, 228, 49);
 }
 .calculateButton:hover{
-    color:rgb(168, 228, 49) ;
+    color: rgb(168, 228, 49);
     background-color: white;
-    border:2px solid rgb(168, 228, 49) ;
-    transform: scale(1.1);
-    
-    
-    
+    border: 2px solid rgb(168, 228, 49);
+    transform: scale(1.05);
 }
 .deleteButton{
-    color:white;
+    color: white;
     background-color: red;
-
 }
 .deleteButton:hover{
-    color:red;
+    color: red;
     background-color: white;
-    border:2px solid red ;
-    transform: scale(1.1);
-
+    border: 2px solid red;
+    transform: scale(1.05);
 }
 .display-container{
     display: flex;
     justify-content: center;
-    margin-top:20px;
+    margin-top: 20px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bolder;
-}.content-container{
-   position: absolute;
+    text-align: center;
+    padding: 0 10px;
+}
+.content-container{
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     background-color: white;
-    padding: 40px 50px;
+    padding: 30px 40px;
     border-radius: 10px;
     animation: fadeIn 3s ease-in-out;
+    width: 90%;
+    max-width: 600px;
+    min-height: auto;
 }
 @keyframes fadeIn {
-    from { opacity: 0; transform: translate(-50%,0); }
-      to { opacity: 1; transform:  translate(-50%, -50%)};
+    from { opacity: 0; transform: translate(-50%, -60%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+}
+/* Tablet Styles */
+@media screen and (max-width: 768px) {
+    .content-container {
+        padding: 25px 30px;
+        width: 95%;
+    }
     
+    .container {
+        max-width: 400px;
+        gap: 12px;
+    }
+    
+    input {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+    
+    input::placeholder {
+        font-size: 11px;
+    }
+    
+    .calculateButton, .deleteButton {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+}
+/* Mobile Styles */
+@media screen and (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .content-container {
+        padding: 20px 25px;
+        width: 98%;
+        top: 50%;
+    }
+    
+    .container {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+        gap: 10px;
+    }
+    
+    .firsttext, .secondtext {
+        font-size: clamp(0.9rem, 4vw, 1.1rem);
+    }
+    
+    input {
+        padding: 12px 15px;
+        font-size: 14px;
+        border-radius: 15px;
+    }
+    
+    input::placeholder {
+        font-size: 12px;
+    }
+    
+    .calculateButton, .deleteButton {
+        padding: 12px 15px;
+        font-size: 14px;
+        min-height: 48px;
+        border-radius: 15px;
+    }
+    
+    .display-container {
+        margin-top: 15px;
+        font-size: 14px;
+    }
+}
+/* Small Mobile Styles */
+@media screen and (max-width: 320px) {
+    .content-container {
+        padding: 15px 20px;
+    }
+    
+    .container {
+        max-width: 250px;
+    }
+    
+    input {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+    
+    input::placeholder {
+        font-size: 11px;
+    }
+    
+    .calculateButton, .deleteButton {
+        padding: 10px 12px;
+        font-size: 13px;
+        min-height: 44px;
+    }
 }
