@@ -36,8 +36,8 @@ displayGrade = () =>{
         const examRawScore = document.querySelector('.examRawScore').value;
         const examHPscore = document.querySelector('.examHPscore').value;
 
-        const quizPercentage = ((quizrawScore / quizHPscore)* 67.5 + 32.5)*.40;
-        const examPercentage = ((examRawScore / examHPscore)* 67.5 + 32.5)*.60;
+        const quizPercentage = ((quizrawScore / quizHPscore)* 50+ 50)*.40;
+        const examPercentage = ((examRawScore / examHPscore)* 50+ 50)*.60;
          
         const totalGrade = Math.round (quizPercentage + examPercentage);
          
