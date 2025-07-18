@@ -1,78 +1,55 @@
-displayGrade = () =>{
-            const convertedGrade = calculateGrade();
-            document.querySelector('.display').innerHTML = `Your converted grade is ${convertedGrade}`
-             if(
-            document.querySelector('.display').innerHTML == `` ||
-            document.querySelector('.quizrawScore').value =='' ||
-            document.querySelector('.quizHPscore').value == '' ||
-            document.querySelector('.examRawScore').value=='' ||
-            document.querySelector('.examHPscore').value==''){
-             document.querySelector('.display').innerHTML = `Not valid input`;   
-            }
+ calculateregHours = () =>{
+        const regularHours = document.querySelector('.regularHours').value
+        const convertedRegHours = regularHours * 67.5;
+        return convertedRegHours;
+        
+     }
+      calculateOTHours = () =>{
+        const OTHours = document.querySelector('.OThours').value
+        const convertedOTHours = OTHours * 84;
+        return convertedOTHours;
+        
+     }
+     calculateTotalIncome = () =>{
+          const regInput = document.querySelector('.regularHours').value.trim();
+          const otInput = document.querySelector('.OThours').value.trim();
+          const regincome = calculateregHours();
+          const otincome = calculateOTHours();
+          const totalIncome = regincome + otincome;
+          const incomesssdeducted = totalIncome *.05;
+          const philhealthdeducted = ((totalIncome * 2)* .05)/2;
+          const pagibigdeducted = totalIncome * .02;
+          const totaldeduction = incomesssdeducted + philhealthdeducted + pagibigdeducted;
+          const netIncome =totalIncome -totaldeduction;
+
+        if(netIncome > 5500){
+             document.querySelector('.display').innerHTML = `
+                <p>Total Income: ${totalIncome.toFixed(2)}</p>
+                <p>SSS : ${incomesssdeducted.toFixed(2)}</p>
+                <p> PhilHealth: ${philhealthdeducted.toFixed(2)}</p>
+                <p>Pagibig : ${pagibigdeducted.toFixed(2)}</p>
+                <p> Net Income: ${netIncome.toFixed(2)}</p>
+                <p>Nakss Paldoo</p>`
+
         }
-        deleteDisplay = () =>{
+            else{
+                document.querySelector('.display').innerHTML = `
+                <p>Total Income: ${totalIncome.toFixed(2)}</p>
+                <p>SSS : ${incomesssdeducted.toFixed(2)}</p>
+                <p> PhilHealth: ${philhealthdeducted.toFixed(2)}</p>
+                <p>Pagibig : ${pagibigdeducted.toFixed(2)}</p>
+                <p> Net Income: ${netIncome.toFixed(2)}</p>
+                 <p>Konting Extend pa boss</p>`
+               
+                
+            }
+            
            
-            if(
-            document.querySelector('.display').innerHTML == `` ||
-            document.querySelector('.quizrawScore').value =='' ||
-            document.querySelector('.quizHPscore').value == '' ||
-            document.querySelector('.examRawScore').value=='' ||
-            document.querySelector('.examHPscore').value==''){
-             document.querySelector('.display').innerHTML = `Not valid input`;   
-            }
-            document.querySelector('.display').innerHTML = ``;
-            document.querySelector('.quizrawScore').value ='';
-            document.querySelector('.quizHPscore').value = '';
-            document.querySelector('.examRawScore').value='';
-            document.querySelector('.examHPscore').value='';
-            document.querySelector('.display').innerHTML = '';
-        }
-
         
-
-    calculateGrade = ()=>{
-        const quizrawScore = document.querySelector('.quizrawScore').value;
-        const quizHPscore = document.querySelector('.quizHPscore').value;
-        const examRawScore = document.querySelector('.examRawScore').value;
-        const examHPscore = document.querySelector('.examHPscore').value;
-
-        const quizPercentage = ((quizrawScore / quizHPscore)* 50+ 50)*.40;
-        const examPercentage = ((examRawScore / examHPscore)* 50+ 50)*.60;
-         
-        const totalGrade = Math.round (quizPercentage + examPercentage);
-         
-        if (totalGrade >= 98){
-            return '1.00';
-        }else if(totalGrade >= 94){
-            return "1.25";
-        }else if(totalGrade >= 90){
-            return '1.50';
-
-        }else if(totalGrade >= 88){
-            return" 1.75";
-
-        }else if(totalGrade >= 85){
-            return '2.00';
-
-        }else if(totalGrade >= 83){
-            return "2.25";
-
-        }else if(totalGrade >= 80){
-            return "2.50";
-
-        }else if(totalGrade >= 78){
-            return "2.75";
-        }else if(totalGrade >= 75){
-            return '3.00';
-        }else if(totalGrade >= 70){
-            return "INC";
-        }else{
-            return "5.00";
-        }
-
-        
-        
-    }
-        
-
-
+           
+     }
+     deleteDisplay = ()=>{
+         document.querySelector('.display').innerHTML = " ";
+         document.querySelector('.regularHours').value = " ";
+         document.querySelector('.OThours').value = " ";
+     }
